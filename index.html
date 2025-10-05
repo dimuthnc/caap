@@ -1,99 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Dimuth Menikgamage - CV</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
-            max-width: 900px;
-        }
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: #2980b9;
-            text-decoration: none;
-        }
-    </style>
+  <!-- ✅ SEO & Metadata -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dimuth Menikgamage | Backend Java Engineer</title>
+  <meta name="description" content="Portfolio of Dimuth Menikgamage, Backend Java Engineer with 8+ years in banking, fintech, API management, and distributed systems.">
+  <meta property="og:title" content="Dimuth Menikgamage | Backend Java Engineer">
+  <meta property="og:description" content="Portfolio of Dimuth Menikgamage, Backend Java Engineer with 8+ years in banking, fintech, API management, and distributed systems.">
+  <meta property="og:type" content="website">
+
+  <!-- ✅ JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dimuth Menikgamage",
+    "jobTitle": "Backend Java Engineer",
+    "email": "mailto:dimuthcse@gmail.com",
+    "url": "https://github.com/dimuthnc",
+    "sameAs": [
+      "https://linkedin.com/in/dimuththaraka",
+      "https://github.com/dimuthnc"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Singapore"
+    }
+  }
+  </script>
+
+  <!-- ✅ Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- ✅ Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 24 24'><text x='0' y='18' font-size='18'>&lt;/&gt;</text></svg>">
+
+  <style>
+    :root {
+      --bg: #1e1e1e;
+      --bg-alt: #252526;
+      --text: #e6e6e6;
+      --accent: #34d0ff;
+      --border: #3c3c3c;
+    }
+    [data-theme="light"] {
+      --bg: #fafafa;
+      --bg-alt: #ffffff;
+      --text: #1e1e1e;
+      --accent: #007acc;
+      --border: #ddd;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, button:hover { opacity: 0.85; }
+    header, section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    /* HEADER */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .name-role { font-weight: 600; }
+    nav { display: flex; gap: 1rem; }
+    nav a {
+      padding: 0.25rem 0.5rem;
+      border-bottom: 2px solid transparent;
+    }
+    nav a.active { border-bottom: 2px solid var(--accent); }
+    .theme-toggle {
+      cursor: pointer;
+      background: var(--accent);
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-left: 1rem;
+    }
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1.2rem; margin: 1rem 0; }
+    .cta-buttons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn {
+      background: var(--accent);
+      color: #000;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    /* SECTIONS */
+    h2 {
+      border-left: 4px solid var(--accent);
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .skills, .experience, .education, .contact {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+    .skills-list, .exp-list {
+      display: grid;
+      gap: 1rem;
+    }
+    .exp-item {
+      background: var(--bg-alt);
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    form {
+      display: grid;
+      gap: 0.5rem;
+      max-width: 500px;
+    }
+    input, textarea {
+      padding: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg-alt);
+      color: var(--text);
+    }
+    .toast {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      display: none;
+    }
+    @media (max-width: 600px) {
+      nav { flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Dimuth Menikgamage</h1>
-    <p>Email: <a href="mailto:dimuthcse@gmail.com">dimuthcse@gmail.com</a> | Phone: (+65) 8450 3337 | 822315, Singapore</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/dimuththaraka" target="_blank">linkedin.com/in/dimuththaraka</a><br>
-    GitHub: <a href="https://github.com/dimuthnc" target="_blank">github.com/dimuthnc</a></p>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="name-role">Dimuth Menikgamage — Backend Java Engineer</div>
+    <nav>
+      <a href="#about" class="active">About Me</a>
+      <a href="#jwt">JWT Decoder</a>
+      <a href="#base64">Base64 Decoder</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle">Toggle Theme</button>
+  </header>
 
-    <h2>PROFESSIONAL SUMMARY</h2>
-    <p>Experienced and dedicated Software Engineer with more than 7 years of experience and proven track records. Currently employed in the Crédit Agricole CIB (via Quess Singapore) as an Engineer. Actively contributed to Implementations around Banking, Financial Services, API Management, Identity and Access Management, and Consent Management. Interested in Middleware development, Microservices architecture, Distributed Computing, Fintech, Application Security, Digital Banking and Artificial Intelligence.</p>
+  <main id="main">
+    <!-- ABOUT ME -->
+    <section class="hero" id="about">
+      <h1>Building resilient banking & fintech platforms with Java.</h1>
+      <p>8+ years of experience in digital banking, open banking compliance, and secure microservices architectures.</p>
+      <div class="cta-buttons">
+        <a class="btn" href="TODO:replace-with-resume.pdf" download>Download CV</a>
+        <a class="btn" href="https://linkedin.com/in/dimuththaraka" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </section>
 
-    <h2>SKILLS</h2>
-    <h3>Programming Languages</h3>
-    <p>Java, Python, Ballerina, JavaScript, Shell Script, C</p>
+    <!-- SKILLS -->
+    <section class="skills">
+      <h2>Key Skills</h2>
+      <div class="skills-list">
+        <div><strong>Programming Languages:</strong> Java, Python, JavaScript, Ballerina, Shell Script, C</div>
+        <div><strong>Frameworks & Tools:</strong> Spring Boot, Hibernate, Apache Camel, Cucumber, PF4J, WSO2 MSF4J, Kubernetes, Docker, Maven, Git, IntelliJ IDEA, VS Code, GitHub, GitLab, Argo CD</div>
+        <div><strong>Databases:</strong> PostgreSQL, MS SQL Server, MySQL, Oracle, H2</div>
+        <div><strong>Middleware & Integration:</strong> WSO2 API Manager, WSO2 Identity Server, WSO2 Micro Gateway, Apache Kafka, IBM MQ, Apache Tomcat, S3-Compatible Storages</div>
+        <div><strong>Concepts & Standards:</strong> REST API Design, IAM, Enterprise Integration, Open Banking, Open Finance, Consent Management, Fraud Detection, Microservices, OAuth 2.0, OIDC, JSON, AVRO, Swagger/OpenAPI</div>
+        <div><strong>Operating Systems:</strong> Linux, MacOS, Windows</div>
+      </div>
+    </section>
 
-    <h3>Frameworks</h3>
-    <p>Spring Boot, Spring Data, Hibernate, WSO2 Carbon, Apache Camel, Cucumber, TestContainers, PF4J, WSO2 MSF4J framework</p>
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+      <h2>Experience</h2>
+      <div class="exp-list">
+        <div class="exp-item">
+          <h3>Crédit Agricole CIB — Software Engineer (Oct 2023 – Present)</h3>
+          <ul>
+            <li>Designed and implemented a multi-purpose integration platform using Apache Camel and Kafka to connect storage systems, message queues, and REST APIs.</li>
+            <li>Developed audit and message replay mechanisms leveraging Event Sourcing patterns.</li>
+            <li>Integrated loan-related payment flows (SEPA, cross-border payments) into the bank’s data reporting ecosystem.</li>
+            <li>Applied enterprise integration patterns and best practices to ensure scalability and reliability.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <h3>WSO2 — Associate Technical Lead / Senior Software Engineer / Software Engineer (Jan 2018 – Sep 2023)</h3>
+          <ul>
+            <li>Led the design and implementation of the WSO2 Open Banking Accelerator (OB 3.0) with a team of 10 engineers, enabling client banks to meet regulatory compliance.</li>
+            <li>Improved system performance by 75%, reducing latency and enhancing transaction throughput.</li>
+            <li>Provided onsite consulting in the UK and Israel, delivering Open Banking solutions, Proof of Concept demos, and client customizations under tight deadlines.</li>
+            <li>Implemented Open Banking features: gateway routing, fraud detection, transaction risk analysis, conditional SCA, gRPC data publishing.</li>
+            <li>Enhanced WSO2 API Manager with Swagger schema and header validation features.</li>
+            <li>Contributed to WSO2 Identity Server with key identity provider implementations.</li>
+            <li>Held roles: Product Owner, Support Team Leader, Release Manager, Consultant, Customer Success Engineer (SLA compliance L1–L3 support).</li>
+            <li>Recognitions: WSO2 Committer (2018), Sustained Outstanding Contribution Award (2019).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <h3>Database Technologies</h3>
-    <p>PostgreSQL, Microsoft SQL Server, MySQL, Oracle Database, H2</p>
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section class="education">
+      <h2>Education & Certifications</h2>
+      <p><strong>B.Sc. (Hons) in Engineering (Computer Science & Engineering)</strong> — University of Moratuwa (Mar 2013 – Jan 2018)<br>
+        Second Class Upper Division, GPA: 3.61/4.20</p>
+      <p><strong>Final Year Project:</strong> Spatio-Temporal Forecasting of Dengue Propagation using Mobility Data (Python, Scikit-Learn, XGBoost, TensorFlow, Spark, Flask)</p>
+      <p><strong>Certifications:</strong> Certified Kubernetes Application Developer (Mar 2025)</p>
+      <h3>Achievements</h3>
+      <ul>
+        <li>G.C.E Advanced Level — A Passes for all three Subjects, Country Rank: 358 (Top 2%)</li>
+        <li>Mathematics Olympiad, Sri Lanka — High Distinctions (2009 & 2010)</li>
+        <li>IEEEXtreme Programming Competition — World Rank: 314 (2015), 424 (2016)</li>
+      </ul>
+    </section>
 
-    <h3>Development Tools</h3>
-    <p>Kubernetes, Docker, Argo CD, Maven, Git, IntelliJ IDEA, Visual Studio Code, GitHub</p>
+    <!-- PUBLICATIONS -->
+    <section class="education">
+      <h2>Publications</h2>
+      <ul>
+        <li><a href="https://wso2.com/library/article/why-banks-should-consider-becoming-third-party-providers/" target="_blank" rel="noopener">Why Banks Should Consider Becoming Third Party Providers (WSO2 Library)</a></li>
+        <li><a href="https://wso2.com/library/article/a-deep-dive-of-transaction-risk-analysis-for-open-banking-and-psd2/" target="_blank" rel="noopener">A Deep Dive of Transaction Risk Analysis for Open Banking and PSD2 (WSO2 Library)</a></li>
+        <li><a href="https://medium.com/@dimuthcse/integrating-fraud-detection-systems-with-open-banking" target="_blank" rel="noopener">Integrating Fraud Detection Systems with Open Banking (Medium)</a></li>
+        <li><a href="https://medium.com/@dimuthcse/how-to-limit-number-of-active-concurrent-user-sessions-with-wso2-identity-server" target="_blank" rel="noopener">How to limit number of active concurrent user sessions with WSO2 Identity Server (Medium)</a></li>
+      </ul>
+    </section>
 
-    <h3>Middleware</h3>
-    <p>WSO2 API Manager, WSO2 Identity Server, WSO2 API Micro gateway, WSO2 Streaming Integrator, WSO2 Enterprise Integrator, Apache Tomcat, Apache Kafka, IBM Message Queue, S3 Compatible Storages</p>
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <p>Email: <span id="email">dimuthcse@gmail.com</span> <button id="copyEmail" class="btn">Copy</button></p>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="emailInput" placeholder="Email" required>
+        <textarea id="message" placeholder="Message" rows="4" required></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </section>
 
-    <h3>Operating Systems</h3>
-    <p>Linux, Mac OS, Windows</p>
+    <!-- JWT DECODER -->
+    <section id="jwt">
+      <h2>JWT Decoder</h2>
+      <p>TODO: Add JWT Decoder functionality here.</p>
+    </section>
 
-    <h3>Others</h3>
-    <p>REST API Design and Implementation, Identity and Access Management, Enterprise Integration, Open Banking, Open Finance, Consent Management, Fraud Detection, Machine Learning, Swagger, Open API, OpenID Connect (OIDC), OAuth 2.0, JSON, AVRO</p>
+    <!-- BASE64 DECODER -->
+    <section id="base64">
+      <h2>Base64 Decoder</h2>
+      <p>TODO: Add Base64 Decoder functionality here.</p>
+    </section>
+  </main>
 
-    <h2>WORK EXPERIENCE</h2>
-    <h3>QUESSCORP SINGAPORE PTE. LTD. | Senior Software Engineer (Oct. 2023 – Present)</h3>
-    <ul>
-        <li>Contributed to implementing a Multi-purpose Integration platform using Apache Camel, Kafka to integrate diverse components within the bank.</li>
-        <li>Implementation of Audit and Message Replay mechanism using Event Sourcing pattern.</li>
-        <li>Integrating loan-related messaging flows to data reporting component.</li>
-    </ul>
+  <!-- ✅ Toast -->
+  <div class="toast" id="toast">Copied!</div>
 
-    <h3>WSO2 | Software Engineer (Jan. 2018 – Sep. 2023)</h3>
-    <ul>
-        <li>Originally hired in 2018, promoted to Senior Software Engineer in June 2019 and Associate Technical Lead in May 2021.</li>
-        <li>Lead engineer for WSO2 Open Banking 3.0.</li>
-        <li>Enhanced performance of components by 75%.</li>
-        <li>Onsite consultations in UK and Israel for Open Banking deployments.</li>
-        <li>Key implementations: Gateway request routing, Executor framework, gRPC publishing, risk analysis, strong customer authentication.</li>
-        <li>Introduced Swagger Schema Validation and Key ID Provider features.</li>
-        <li>WSO2 Committer (2018), Sustained Outstanding Contribution Award (2019).</li>
-        <li>Support for L1-L3 issues, multiple internal roles including Product Owner and Consultant.</li>
-    </ul>
+  <script>
+    // ✅ Theme Switcher
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const current = document.documentElement.dataset.theme;
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
 
-    <h2>EDUCATION</h2>
-    <h3>University of Moratuwa (Mar. 2013 – Jan. 2018)</h3>
-    <p>B.Sc (Hons) in Engineering - Computer Science and Engineering<br>
-    Second Class Upper Division, GPA: 3.61 / 4.20</p>
-    <p><strong>Final Year Project:</strong> Spatio-Temporal Forecasting of Dengue Propagation using mobility data</p>
-    <p>Technologies: Python, Scikit Learn, XGBoost, TensorFlow, Apache Spark, Flask</p>
+    // ✅ Smooth Scroll + Active Nav
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = [...document.querySelectorAll('main section')];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const id = entry.target.getAttribute('id');
+          const active = document.querySelector(`nav a[href="#${id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.6 });
+    sections.forEach(s => observer.observe(s));
 
-    <h2>ACHIEVEMENTS</h2>
-    <ul>
-        <li>Certified Kubernetes Application Developer (March 2025)</li>
-        <li>G.C.E A/L: A passes in all subjects, Country Rank 358 (Top 2%)</li>
-        <li>Math Olympiad High Distinctions (2009, 2010)</li>
-        <li>IEEEXtreme 2015 (Rank 314), 2016 (Rank 424)</li>
-    </ul>
+    // ✅ Copy Email
+    document.getElementById('copyEmail').addEventListener('click', () => {
+      navigator.clipboard.writeText(document.getElementById('email').textContent).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 1500);
+      });
+    });
 
-    <h2>ARTICLE PUBLICATIONS</h2>
-    <ul>
-        <li><a href="https://wso2.com/library/articles/why-banks-should-consider-becoming-third-party-providers/" target="_blank"></a> Banks Should Consider Becoming Third Party Providers (WSO2 Library Article)</li>
-        <li><a href="https://wso2.com/articles/2019/05/a-deep-dive-of-transaction-risk-analysis-for-open-banking-and-psd2/" target="_blank">A Deep Dive of Transaction Risk Analysis for Open Banking and PSD2 (WSO2 Library Article)</a></li>
-        <li><a href="https://medium.com/@dimuthcse/integrating-fraud-detection-systems-with-open-banking-8dc6b36e55f8" target="_blank">Integrating Fraud Detection Systems with Open Banking (Medium Blog)</a></li>
-        <li><a href="https://medium.com/@dimuthcse/how-to-limit-number-of-active-concurrent-user-sessions-with-wso2-identity-server-98d0fed61de2" target="_blank">How to Limit Number of Active Concurrent User Sessions with WSO2 Identity Server (Medium Blog)</a></li>
-    </ul>
+    // ✅ Contact Form Validation
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      if (name && email && msg) {
+        window.location.href = `mailto:dimuthcse@gmail.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(msg)}`;
+      }
+    });
+  </script>
 </body>
 </html>
